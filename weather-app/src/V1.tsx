@@ -52,11 +52,11 @@ const App: React.FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [weatherOverview, setWeatherOverview] = useState<WeatherOverview | null>(null);
 
-    const API_KEY = "acd2d248af0431cc081abc332524d1a0";
-    const WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather";
-    const FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast";
-    const UNSPLASH_API_KEY = "auShS9fHuCJdWQEuTMqnq2JCAo7p5XrkwW3vQAxfsbQ";
-    const UNSPLASH_URL = "https://api.unsplash.com/search/photos";
+    const API_KEY = import.meta.env.VITE_API_KEY || "";
+    const WEATHER_URL = import.meta.env.VITE_WEATHER_URL || "";
+    const FORECAST_URL = import.meta.env.VITE_FORECAST_URL || "";
+    const UNSPLASH_API_KEY = import.meta.env.VITE_UNSPLASH_API_KEY || "";
+    const UNSPLASH_URL = import.meta.env.VITE_UNSPLASH_URL || "";
 
     const fetchBackgroundImage = async (query: string) => {
         try {

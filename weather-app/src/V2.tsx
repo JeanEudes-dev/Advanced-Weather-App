@@ -70,13 +70,14 @@ const V2: React.FC = () => {
     const [selectedEntry, setSelectedEntry] = useState<WeatherEntry | null>(null);
     const [entryData, setEntryData] = useState<WeatherEntry | null>(null);
 
-    const API_KEY = "acd2d248af0431cc081abc332524d1a0";
-    const WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather";
-    const FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast";
-    const UNSPLASH_API_KEY = "auShS9fHuCJdWQEuTMqnq2JCAo7p5XrkwW3vQAxfsbQ";
-    const UNSPLASH_URL = "https://api.unsplash.com/search/photos";
-    const DJANGO_API_URL = "http://localhost:8000/api/weather/";
-    const DJANGO_CSV_URL = "http://localhost:8000/api/weather/export/csv/";
+    const API_KEY = import.meta.env.VITE_API_KEY || "";
+    const WEATHER_URL = import.meta.env.VITE_WEATHER_URL || "";
+    const FORECAST_URL = import.meta.env.VITE_FORECAST_URL || "";
+    const UNSPLASH_API_KEY = import.meta.env.VITE_UNSPLASH_API_KEY || "";
+    const UNSPLASH_URL = import.meta.env.VITE_UNSPLASH_URL || "";
+    const DJANGO_API_URL = import.meta.env.VITE_DJANGO_API_URL || "";
+    const DJANGO_CSV_URL = import.meta.env.VITE_DJANGO_CSV_URL || "";
+
 
     const fetchBackgroundImage = async (query: string) => {
         try {
@@ -323,6 +324,7 @@ const V2: React.FC = () => {
 
     useEffect(() => {
         fetchWeatherEntries();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -506,7 +508,7 @@ const V2: React.FC = () => {
                     <button type="submit" className="submit-button">Add Entry</button>
                 </form>
                 <ul className="entries-list">
-                    {weatherEntries.map((entry) => (
+                    {weatherEntries && weatherEntries.map((entry) => (
                         <li key={entry.id} className="entry-item" onClick={() => fetchEntryById(entry.id)}>
                             <div className="entry-details">
                                 <strong>{entry.location}</strong> - {entry.date_range_start} to {entry.date_range_end}

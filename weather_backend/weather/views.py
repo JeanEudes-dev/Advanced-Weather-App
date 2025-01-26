@@ -6,8 +6,10 @@ from rest_framework.response import Response
 from .models import WeatherEntry
 from .serializers import WeatherEntrySerializer
 import requests
+import os
+from decouple import config
 
-API_KEY = "acd2d248af0431cc081abc332524d1a0"
+API_KEY = config("API_KEY")
 
 def fetch_weather_data(location, start_date, end_date):
     # Ensure start_date and end_date are date objects
