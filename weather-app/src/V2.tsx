@@ -466,7 +466,7 @@ const V2: React.FC = () => {
 
             {/* CRUD Section */}
             <div className="crud-section">
-                <h2>CRUD Operations</h2>
+                <h2>Manage Weather Data</h2>
                 {crudError && <p className="error">{crudError}</p>} {/* Display CRUD errors */}
                 <form onSubmit={handleSubmit} className="crud-form">
                     <div className="form-group">
