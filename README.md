@@ -5,6 +5,8 @@
 The **Advanced Weather App** provides accurate and real-time weather information for any location worldwide. It includes detailed forecasts, current conditions, and various weather insights. The app also allows users to manage and persist weather data with CRUD functionality, export data, and explore additional integrations like maps and videos.
 
 ---
+## Live url 
+[Vercel](https://vercel.com/jeaneudes-devs-projects/weather-app/Ejmm6hJbruppn6HJeKR4GPQWTPHi)
 
 ## Features
 
